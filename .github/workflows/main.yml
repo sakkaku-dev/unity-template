@@ -35,6 +35,7 @@ jobs:
         id: testRunner
         with:
           unityVersion: ${{ matrix.unityVersion }}
+          customParameters: -nographics
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
@@ -43,6 +44,7 @@ jobs:
         with:
           unityVersion: ${{ matrix.unityVersion }}
           targetPlatform: ${{ matrix.targetPlatform }}
+          customParameters: -nographics
       - uses: actions/upload-artifact@v1
         with:
           name: Build
