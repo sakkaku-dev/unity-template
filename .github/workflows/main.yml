@@ -3,7 +3,7 @@ name: Main
 on:
   workflow_dispatch:
   pull_request: {}
-  push: { branches: [feature/ci] }
+  push: {}
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
