@@ -25,6 +25,7 @@ jobs:
         id: testRunner
         with:
           unityVersion: 2020.1.7f1
+          customParameters: -nographics
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
