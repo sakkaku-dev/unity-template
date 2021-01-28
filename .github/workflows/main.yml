@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   pull_request: {}
   push:
-    branches: ["master"]
+    branches: [master]
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-  UNITY_VERSION: "2020.1.7f1"
+  UNITY_VERSION: 2020.1.7f1
 
 jobs:
   test:
