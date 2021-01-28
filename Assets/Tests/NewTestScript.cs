@@ -12,8 +12,7 @@ namespace Tests
         [Test]
         public void NewTestScriptSimplePasses()
         {
-
-            // Use the Assert class to test conditions
+            Assert.IsTrue(true);
         }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
