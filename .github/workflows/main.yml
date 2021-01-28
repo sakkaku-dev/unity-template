@@ -25,7 +25,7 @@ jobs:
       - uses: webbertakken/unity-test-runner@v1.7
         id: testRunner
         with:
-          unityVersion: env.UNITY_VERSION
+          unityVersion: ${{ env.UNITY_VERSION }}
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
@@ -39,7 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         unityVersion:
-          - env.UNITY_VERSION
+          - ${{ env.UNITY_VERSION }}
         targetPlatform:
           #  - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
