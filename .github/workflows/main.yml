@@ -32,7 +32,7 @@ jobs:
           path: ${{ steps.testRunner.outputs.artifactsPath }}
   build:
     name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
-    if: github.ref == "refs/heads/master"
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs: test
     strategy:
@@ -62,7 +62,7 @@ jobs:
           name: Build-${{matrix.targetPlatform}}
           path: build
   publish-web:
-    if: github.ref == "refs/heads/master"
+    if: github.ref == 'refs/heads/master'
     needs: build
     runs-on: ubuntu-latest
     steps:
