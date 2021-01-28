@@ -8,7 +8,6 @@ on:
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-  UNITY_VERSION: 2020.1.7f1
 
 jobs:
   test:
@@ -25,7 +24,7 @@ jobs:
       - uses: webbertakken/unity-test-runner@v1.7
         id: testRunner
         with:
-          unityVersion: ${{ env.UNITY_VERSION }}
+          unityVersion: 2020.1.7f1
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
@@ -39,7 +38,7 @@ jobs:
       fail-fast: false
       matrix:
         unityVersion:
-          - ${{ env.UNITY_VERSION }}
+          - 2020.1.7f1
         targetPlatform:
           #  - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
