@@ -25,21 +25,21 @@ jobs:
       - uses: webbertakken/unity-test-runner@v1.7
         id: testRunner
         with:
-          unityVersion: ${{ env.UNITY_VERSION }}
+          unityVersion: env.UNITY_VERSION
       - uses: actions/upload-artifact@v1
         with:
           name: Test results (all modes)
           path: ${{ steps.testRunner.outputs.artifactsPath }}
   build:
     name: Build for ${{ matrix.targetPlatform }} on version ${{ matrix.unityVersion }}
-    if: github.ref == ${{ env.MAIN_BRANCH }}
+    if: github.ref == env.MAIN_BRANCH
     runs-on: ubuntu-latest
     needs: test
     strategy:
       fail-fast: false
       matrix:
         unityVersion:
-          - ${{ env.UNITY_VERSION }}
+          - env.UNITY_VERSION
         targetPlatform:
           #  - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
           - StandaloneWindows64 # Build a Windows 64-bit standalone.
@@ -62,7 +62,7 @@ jobs:
           name: Build-${{matrix.targetPlatform}}
           path: build
   publish-web:
-    if: github.ref == ${{ env.MAIN_BRANCH }}
+    if: github.ref == env.MAIN_BRANCH
     needs: build
     runs-on: ubuntu-latest
     steps:
